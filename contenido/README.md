@@ -4,10 +4,14 @@ Los textos visibles del sitio están separados por sección:
 
 - `general.md`: navegación, botones y pie de página.
 - `inicio.md`: portada.
-- `carrera.md`: historia y datos académicos.
-- `formacion.md`: áreas de formación.
-- `proposito.md`: propósito y galería.
-- `admision.md`: admisión y ubicación.
+- `licenciatura.md`: carrera, admisión, titulación y datos académicos.
+- `investigacion.md`: investigación formal, formativa, de carrera y CIDIS.
+- `interaccion.md`: prácticas preprofesionales y laboratorio.
+- `posgrado.md`: oferta de diplomados.
+- `contacto.md`: ubicación, redes, número y correo.
+
+Las traducciones al quechua boliviano están dentro de la carpeta `qu/` y
+conservan la misma estructura y nombres de archivo.
 
 ## Reglas sencillas
 
@@ -18,5 +22,5 @@ Los textos visibles del sitio están separados por sección:
 5. Dos espacios al final de una línea producen un salto de línea.
 6. Guarda el archivo y recarga la web para ver el cambio.
 
-Para que la web pueda leer estos archivos, abre `iniciar.command` en lugar de
-abrir `index.html` directamente.
+Después de editar textos, ejecuta `node generate-content.js` para actualizar el
+paquete bilingüe y recarga la web. Para abrirla, usa `iniciar.command`.

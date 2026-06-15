@@ -1,24 +1,24 @@
-# Contenido general
+# Tukuy qillqasqa
 
 ## Navegación
 - Licenciatura
-- Investigación
-- Interacción
-- Posgrado
-- Contacto
+- Yachay mask'ay
+- Llaqtawan llamk'ay
+- Qhipa yachay
+- Rimanakuy
 
 ## Botón del encabezado
-Quiero estudiar diseño gráfico
+Diseño gráficota yachakuyta munani
 
 ## Nombre institucional
 Diseño Gráfico y Comunicación Visual  
 Universidad Mayor de San Simón
 
 ## Ubicación breve
-Campus Central Las Cuadras · bloque nuevo, 3.er piso
+Las Cuadras chawpi campuspi · musuq wasi, kimsa ñiqin pata
 
 ## Correo
 direcciondgycv@umss.edu
 
 ## Estado del sitio
-Sitio en construcción · Primera versión
+Web nisqa ruwakuchkan · Ñawpaq rikuchiy

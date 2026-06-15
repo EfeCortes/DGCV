@@ -11,47 +11,55 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;600;700&family=Climate+Crisis&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="content-loader.js" defer></script>
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20" />
+    <script src="content-data.js?v=20" defer></script>
+    <script src="content-loader.js?v=20" defer></script>
+    <script src="script.js?v=20" defer></script>
   </head>
   <body>
-    <div class="cursor-dot" aria-hidden="true"></div>
     <header class="site-header">
       <a class="brand" href="#inicio" aria-label="DGCV UMSS, inicio">
         <img src="assets/id-dgcv.svg" alt="Identificador DGCV" />
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
-        <span>Menú</span>
+        <span class="menu-label">Menú</span>
         <i></i>
       </button>
       <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
-        <a href="#carrera">La carrera</a>
-        <a href="#formacion">Formación</a>
-        <a href="#proyectos">Proyectos</a>
+        <a href="#licenciatura">Licenciatura</a>
+        <a href="#investigacion">Investigación</a>
+        <a href="#interaccion">Interacción</a>
+        <a href="#posgrado">Posgrado</a>
         <a href="#contacto">Contacto</a>
       </nav>
-      <a class="header-cta" href="#admision"><span class="label">Quiero estudiar DGCV</span> <span>↗</span></a>
+      <div class="header-actions">
+        <div class="language-switcher" role="group" aria-label="Seleccionar idioma">
+          <button type="button" data-language="es" class="active" aria-pressed="true">ES</button>
+          <button type="button" data-language="qu" aria-pressed="false">QH</button>
+        </div>
+      </div>
     </header>
 
     <main>
       <section id="inicio" class="hero">
-        <div class="hero-kicker reveal">
-          <span class="status-dot"></span>
-          <span class="content-text">Universidad Mayor de San Simón · Cochabamba</span>
-        </div>
-        <div class="hero-title reveal">
-          <h1>
-            Diseñamos<br />
-            <span class="word-accent">ideas</span> que
-            <span class="word-outline">comunican.</span>
-          </h1>
-          <div class="hero-symbols" aria-hidden="true">
-            <span class="triangle"></span>
-            <span class="circle"></span>
+        <div class="hero-stage">
+          <div class="hero-title reveal">
+            <h1>
+              Diseñamos<br />
+              <span class="word-accent">ideas</span> que
+              <span class="word-outline">comunican.</span>
+            </h1>
+          </div>
+          <div class="hero-media reveal">
+            <div class="hero-background" role="img" aria-label="Aula de Diseño Gráfico"></div>
+            <img
+              class="hero-character"
+              src="assets/character.png"
+              alt="Personaje ilustrado trabajando en una tableta gráfica"
+            />
           </div>
         </div>
         <div class="hero-bottom reveal">
@@ -59,7 +67,7 @@
             Formación creativa, crítica y estratégica para transformar mensajes
             en experiencias visuales que conectan con las personas.
           </p>
-          <a class="round-link" href="#carrera" aria-label="Conocer la carrera">
+          <a class="round-link" href="#licenciatura" aria-label="Conocer la carrera">
             <span class="content-text">Conoce<br />la carrera</span>
             <b>↓</b>
           </a>
@@ -76,123 +84,74 @@
         </div>
       </section>
 
-      <section id="carrera" class="intro section">
-        <div class="section-label reveal"><span>01</span> <span class="content-text">La carrera</span></div>
-        <div class="intro-grid">
-          <h2 class="reveal">Aprender a ver.<br />Aprender a hacer.</h2>
-          <div class="intro-copy reveal">
-            <p class="lead">
-              Formamos profesionales capaces de proponer soluciones de
-              comunicación para las diversas necesidades de la sociedad.
-            </p>
-            <p class="history">
-              La carrera comenzó como programa en 2008 por iniciativa de
-              docentes de Arquitectura. En 2012 se consolidó como carrera y en
-              2016 obtuvo la acreditación del Comité Ejecutivo de la
-              Universidad Boliviana.
-            </p>
-            <a class="text-link" href="#formacion"><span class="label">Explorar la formación</span> <span>→</span></a>
-          </div>
+      <section id="proposito" class="purpose-strip section">
+        <div class="section-label reveal"><span>00</span> <span class="purpose-label">Nuestra orientación</span></div>
+        <div class="purpose-grid">
+          <article class="reveal"><span>M</span><h2 class="mission-title">Misión</h2><p class="mission">Formar profesionales capaces de responder a las necesidades de la sociedad.</p></article>
+          <article class="reveal"><span>V</span><h2 class="vision-title">Visión</h2><p class="vision">Ser una carrera referente en formación, investigación e interacción social.</p></article>
+          <article class="reveal"><span>O</span><h2 class="objectives-title">Objetivos</h2><p class="objectives">Impulsar una formación crítica y creativa para el desarrollo del país.</p></article>
+        </div>
+      </section>
+
+      <section id="licenciatura" class="site-section section">
+        <div class="section-label reveal"><span>01</span> <span class="content-text">Licenciatura</span></div>
+        <div class="section-heading reveal"><h2>Formación para<br />transformar ideas.</h2><p class="section-intro">Una carrera que integra diseño, comunicación, tecnología, investigación y cultura.</p></div>
+        <div class="content-grid">
+          <article class="content-card reveal"><span>01</span><h3>¿Qué es la carrera?</h3><p data-field="que-es-la-carrera"></p></article>
+          <article class="content-card reveal"><span>02</span><h3>¿Qué hace la carrera?</h3><p data-field="que-hace-la-carrera"></p></article>
+          <article class="content-card reveal"><span>03</span><h3>Modalidades de admisión</h3><p data-field="modalidades-de-admision"></p></article>
+          <article class="content-card reveal"><span>04</span><h3>Modalidades de titulación</h3><p data-field="modalidades-de-titulacion"></p></article>
         </div>
         <div class="facts reveal" aria-label="Datos académicos">
-          <div><strong>2008</strong><span>Creación del programa</span></div>
-          <div><strong>5</strong><span>Años de formación</span></div>
-          <div><strong>29</strong><span>Asignaturas</span></div>
-          <div><strong>6.050</strong><span>Horas académicas</span></div>
-        </div>
-        <div class="statement reveal">
-          <span class="origin">Desde Cochabamba</span>
-          <strong>CREAR ES<br />TOMAR POSICIÓN.</strong>
-          <span class="scope">Para Bolivia y el mundo</span>
+          <div><strong>2008</strong><span>Creación del programa</span></div><div><strong>5</strong><span>Años de formación</span></div><div><strong>29</strong><span>Asignaturas</span></div><div><strong>6.050</strong><span>Horas académicas</span></div>
         </div>
       </section>
 
-      <section id="formacion" class="areas section">
-        <div class="section-label reveal"><span>02</span> <span class="content-text">Formación académica</span></div>
-        <div class="section-heading reveal">
-          <h2>Cinco años<br />para diseñar.</h2>
-          <p>El plan publicado articula talleres, teoría, tecnología y comunicación visual.</p>
-        </div>
-        <div class="area-list">
-          <article class="area-card reveal">
-            <span>01</span>
-            <div><h3>Fundamentos</h3><p>Diseño, dibujo, color, geometría, historia y expresión oral y escrita.</p></div>
-            <b>↗</b>
-          </article>
-          <article class="area-card reveal">
-            <span>02</span>
-            <div><h3>Imagen y tecnología</h3><p>Fotografía, gráfica computacional y tecnologías aplicadas al diseño.</p></div>
-            <b>↗</b>
-          </article>
-          <article class="area-card reveal">
-            <span>03</span>
-            <div><h3>Comunicación</h3><p>Teoría, metodología, publicidad, marketing y psicología del mensaje visual.</p></div>
-            <b>↗</b>
-          </article>
-          <article class="area-card reveal">
-            <span>04</span>
-            <div><h3>Proyecto profesional</h3><p>Gestión de proyectos y modalidad de graduación mediante proyecto de grado.</p></div>
-            <b>↗</b>
-          </article>
-        </div>
-        <a
-          class="source-link reveal"
-          href="https://sites.google.com/umss.edu/dgumss/index/asignaturas"
-          target="_blank"
-          rel="noreferrer"
-        ><span class="label">Consultar asignaturas publicadas</span> <span>↗</span></a>
-      </section>
-
-      <section id="proyectos" class="projects section">
-        <div class="projects-heading reveal">
-          <div class="section-label light"><span>03</span> <span class="content-text">Propósito</span></div>
-          <h2>Diseño para<br />la sociedad.</h2>
-          <p class="projects-description">
-            Una formación tecnológica y científica, con ética profesional,
-            valores humanos y compromiso con la diversidad cultural.
-          </p>
-          <div class="purpose-links">
-            <a class="publications-link" href="https://sites.google.com/umss.edu/dgumss/index/publicaciones" target="_blank" rel="noreferrer"><span class="label">Revista Sån Serif</span> <span>↗</span></a>
-            <a class="institutional-link" href="https://sites.google.com/umss.edu/dgumss/index/nuestra-carrera" target="_blank" rel="noreferrer"><span class="label">Misión y visión</span> <span>↗</span></a>
-          </div>
-        </div>
-        <div class="project-canvas reveal" aria-label="Espacio para proyectos estudiantiles">
-          <span class="canvas-label">PRÓXIMAMENTE</span>
-          <p>Galería de proyectos<br />de estudiantes DGCV</p>
-          <div class="canvas-shape shape-a"></div>
-          <div class="canvas-shape shape-b"></div>
-          <div class="canvas-shape shape-c"></div>
+      <section id="investigacion" class="site-section dark-section section">
+        <div class="section-label light reveal"><span>02</span> <span class="content-text">Investigación</span></div>
+        <div class="section-heading reveal"><h2>Diseñar también<br />es investigar.</h2><p class="section-intro">La investigación fortalece la producción de conocimiento desde nuestro contexto.</p></div>
+        <div class="research-grid">
+          <article class="feature-card reveal"><b>IF</b><h3>Investigación formal</h3><p data-field="investigacion-formal"></p></article>
+          <article class="feature-card reveal"><b>IFo</b><h3>Investigación formativa</h3><p data-field="investigacion-formativa"></p></article>
+          <article class="feature-card accent reveal"><b>DC</b><h3>Investigación de la carrera</h3><p data-field="investigacion-de-la-carrera"></p></article>
+          <article class="feature-card accent reveal"><b>CI</b><h3>Investigación del CIDIS</h3><p data-field="investigacion-del-cidis"></p></article>
         </div>
       </section>
 
-      <section id="admision" class="admission section">
-        <div class="admission-copy reveal">
-          <div class="section-label"><span>04</span> <span class="content-text">Admisión</span></div>
-          <h2>Tu mirada<br />hace falta.</h2>
-          <p class="admission-description">
-            La carrera funciona en el Campus Central Las Cuadras, final Jordán,
-            en el bloque nuevo de la Facultad de Arquitectura y Ciencias del
-            Hábitat.
-          </p>
-          <a class="button" href="https://www.umss.edu.bo/" target="_blank" rel="noreferrer">
-            <span class="label">Visitar portal UMSS</span> <span>↗</span>
-          </a>
+      <section id="interaccion" class="site-section section">
+        <div class="section-label reveal"><span>03</span> <span class="content-text">Interacción</span></div>
+        <div class="section-heading reveal"><h2>Aprender haciendo<br />con la comunidad.</h2></div>
+        <div class="split-panels">
+          <article class="interaction-card practices reveal"><span>01</span><h3>Prácticas preprofesionales</h3><p data-field="practicas-preprofesionales"></p></article>
+          <article class="interaction-card laboratory reveal"><span>02</span><h3>Laboratorio</h3><p data-field="laboratorio"></p></article>
         </div>
-        <div class="admission-art reveal" aria-hidden="true">
-          <div class="big-circle"></div>
-          <div class="big-triangle"></div>
-          <span>DGCV</span>
+      </section>
+
+      <section id="posgrado" class="postgraduate section">
+        <div class="postgraduate-copy reveal">
+          <div class="section-label light"><span>04</span> <span class="content-text">Posgrado</span></div>
+          <h2>Seguir aprendiendo.<br />Seguir diseñando.</h2>
+          <p data-field="oferta-de-diplomados"></p>
+          <a class="button" href="#contacto"><span class="status-text">Consultar oferta</span> <span>↗</span></a>
         </div>
+        <div class="postgraduate-art reveal" aria-hidden="true"><b>DGCV</b></div>
       </section>
     </main>
 
     <footer id="contacto">
+      <div class="footer-heading">
+        <div class="section-label light"><span>05</span> <span class="content-text">Contacto</span></div>
+        <h2 class="contact-title">Conversemos.</h2>
+        <p class="contact-description"></p>
+      </div>
       <div class="footer-top">
         <img src="assets/id-dgcv.svg" alt="DGCV" />
         <p class="footer-name">Diseño Gráfico y Comunicación Visual<br />Universidad Mayor de San Simón</p>
         <div>
           <span class="footer-location">Campus Central Las Cuadras · bloque nuevo, 3.er piso</span>
           <a class="footer-email" href="mailto:direcciondgycv@umss.edu">direcciondgycv@umss.edu</a>
+          <span class="contact-phone">Número institucional por confirmar</span>
+          <span class="contact-social">Redes sociales próximamente</span>
           <a href="https://www.umss.edu.bo/" target="_blank" rel="noreferrer">umss.edu.bo ↗</a>
         </div>
       </div>
