@@ -11,13 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;600;700&family=Climate+Crisis&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20" />
-    <script src="content-data.js?v=20" defer></script>
-    <script src="content-loader.js?v=20" defer></script>
-    <script src="script.js?v=20" defer></script>
+    <link rel="stylesheet" href="styles.css?v=65" />
+    <script src="content-data.js?v=65" defer></script>
+    <script src="content-loader.js?v=65" defer></script>
+    <script src="script.js?v=65" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -39,120 +39,235 @@
         <div class="language-switcher" role="group" aria-label="Seleccionar idioma">
           <button type="button" data-language="es" class="active" aria-pressed="true">ES</button>
           <button type="button" data-language="qu" aria-pressed="false">QH</button>
+          <button type="button" data-language="en" aria-pressed="false">EN</button>
         </div>
       </div>
     </header>
 
     <main>
-      <section id="inicio" class="hero">
-        <div class="hero-stage">
-          <div class="hero-title reveal">
-            <h1>
-              Diseñamos<br />
-              <span class="word-accent">ideas</span> que
-              <span class="word-outline">comunican.</span>
-            </h1>
-          </div>
-          <div class="hero-media reveal">
-            <div class="hero-background" role="img" aria-label="Aula de Diseño Gráfico"></div>
-            <img
-              class="hero-character"
-              src="assets/character.png"
-              alt="Personaje ilustrado trabajando en una tableta gráfica"
-            />
-          </div>
+      <section id="inicio" class="scroll-scene hero theme-hero">
+        <div class="parallax-stage">
+          <div class="parallax-bg hero-background" role="img" aria-label="Bienvenida a Diseño Gráfico"></div>
+          <img
+            class="parallax-characters hero-character"
+            src="assets/images/home-characters.png"
+            alt="Personaje ilustrado trabajando en una tableta gráfica"
+          />
         </div>
-        <div class="hero-bottom reveal">
-          <p>
-            Formación creativa, crítica y estratégica para transformar mensajes
-            en experiencias visuales que conectan con las personas.
-          </p>
-          <a class="round-link" href="#licenciatura" aria-label="Conocer la carrera">
-            <span class="content-text">Conoce<br />la carrera</span>
-            <b>↓</b>
-          </a>
-        </div>
-        <div class="ticker" aria-label="Áreas de formación">
-          <div class="ticker-track">
-            <span>Identidad visual</span><i>●</i>
-            <span>Diseño editorial</span><i>▲</i>
-            <span>Medios digitales</span><i>●</i>
-            <span>Comunicación estratégica</span><i>▲</i>
-            <span>Identidad visual</span><i>●</i>
-            <span>Diseño editorial</span><i>▲</i>
+        <div id="proposito" class="scroll-content purpose-strip">
+          <h1 class="purpose-hero-title reveal"></h1>
+          <div class="purpose-grid">
+            <article class="reveal"><h2 class="mission-title">Misión</h2><p class="mission">Formar profesionales capaces de responder a las necesidades de la sociedad.</p></article>
+            <article class="reveal"><h2 class="vision-title">Visión</h2><p class="vision">Ser una carrera referente en formación, investigación e interacción social.</p></article>
+            <article class="reveal"><h2 class="objectives-title">Objetivos</h2><p class="objectives">Impulsar una formación crítica y creativa para el desarrollo del país.</p></article>
           </div>
-        </div>
-      </section>
-
-      <section id="proposito" class="purpose-strip section">
-        <div class="section-label reveal"><span>00</span> <span class="purpose-label">Nuestra orientación</span></div>
-        <div class="purpose-grid">
-          <article class="reveal"><span>M</span><h2 class="mission-title">Misión</h2><p class="mission">Formar profesionales capaces de responder a las necesidades de la sociedad.</p></article>
-          <article class="reveal"><span>V</span><h2 class="vision-title">Visión</h2><p class="vision">Ser una carrera referente en formación, investigación e interacción social.</p></article>
-          <article class="reveal"><span>O</span><h2 class="objectives-title">Objetivos</h2><p class="objectives">Impulsar una formación crítica y creativa para el desarrollo del país.</p></article>
         </div>
       </section>
 
       <section id="licenciatura" class="site-section section">
-        <div class="section-label reveal"><span>01</span> <span class="content-text">Licenciatura</span></div>
-        <div class="section-heading reveal"><h2>Formación para<br />transformar ideas.</h2><p class="section-intro">Una carrera que integra diseño, comunicación, tecnología, investigación y cultura.</p></div>
-        <div class="content-grid">
-          <article class="content-card reveal"><span>01</span><h3>¿Qué es la carrera?</h3><p data-field="que-es-la-carrera"></p></article>
-          <article class="content-card reveal"><span>02</span><h3>¿Qué hace la carrera?</h3><p data-field="que-hace-la-carrera"></p></article>
-          <article class="content-card reveal"><span>03</span><h3>Modalidades de admisión</h3><p data-field="modalidades-de-admision"></p></article>
-          <article class="content-card reveal"><span>04</span><h3>Modalidades de titulación</h3><p data-field="modalidades-de-titulacion"></p></article>
+        <div class="scroll-scene theme-formation">
+          <div class="parallax-stage">
+            <div class="parallax-bg" style="background-image: url('assets/images/formation-bg.jpg')" aria-hidden="true"></div>
+            <img class="parallax-characters" src="assets/images/formation-characters.png" alt="" />
+          </div>
+          <div class="scroll-content">
+            <div class="section-heading reveal">
+              <h3 class="section-kicker">Formación</h3>
+              <h1>Diseña la revolución visual.</h1>
+            </div>
+            <div class="formation-copy-grid reveal">
+              <p class="section-intro"></p>
+              <div class="section-copy">
+                <p data-field="formacion"></p>
+                <a class="button curriculum-button" href="assets/malla.pdf" download><span>Ver malla curricular</span> <span>↓</span></a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="facts reveal" aria-label="Datos académicos">
-          <div><strong>2008</strong><span>Creación del programa</span></div><div><strong>5</strong><span>Años de formación</span></div><div><strong>29</strong><span>Asignaturas</span></div><div><strong>6.050</strong><span>Horas académicas</span></div>
+
+        <div class="scroll-scene theme-formation">
+          <div class="parallax-stage">
+            <div class="parallax-bg" style="background-image: url('assets/images/admission-bg.jpg')" aria-hidden="true"></div>
+            <img class="parallax-characters" src="assets/images/admission-characters.png" alt="" />
+          </div>
+          <div class="scroll-content">
+            <div class="subsection-heading reveal">
+              <h3 class="admission-kicker">Admisión</h3>
+              <h1 class="admission-title">Modalidades de admisión</h1>
+            </div>
+            <div class="content-grid admission-grid">
+              <article class="content-card reveal"><h3>PSA</h3><p data-field="admision-psa"></p></article>
+              <article class="content-card reveal"><h3>Curso preuniversitario</h3><p data-field="admision-preuniversitario"></p></article>
+              <article class="content-card reveal"><h3>Admisión especial</h3><p data-field="admision-especial"></p></article>
+              <div class="requirements-callout reveal">
+                <h3 class="requirements-title">Requisitos generales comunes</h3>
+                <p data-field="requisitos"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="professors-section reveal" aria-label="Nuestros docentes">
+          <div class="professors-header">
+            <div>
+              <h2 class="professors-title professors-label">Nuestros docentes</h2>
+              <p class="professors-description" data-field="docentes"></p>
+            </div>
+            <div class="professors-controls" aria-label="Controles del carrusel de docentes">
+              <button class="professors-arrow" type="button" data-professor-direction="-1" aria-label="Docentes anteriores">←</button>
+              <button class="professors-arrow" type="button" data-professor-direction="1" aria-label="Docentes siguientes">→</button>
+            </div>
+          </div>
+          <div class="professors-carousel" aria-live="off">
+            <div class="professors-track"></div>
+          </div>
+        </section>
+
+        <div class="scroll-scene theme-titulation">
+          <div class="parallax-stage">
+            <div class="parallax-bg" style="background-image: url('assets/images/titulation-bg.jpg')" aria-hidden="true"></div>
+            <img class="parallax-characters" src="assets/images/titulation-characters.png" alt="" />
+          </div>
+          <div class="scroll-content">
+            <div class="subsection-heading reveal">
+              <h3 class="titulation-kicker">Titulación</h3>
+              <h1 class="titulation-title">Modalidades de titulación</h1>
+            </div>
+            <div class="content-grid titulation-grid">
+              <article class="content-card reveal"><h3>Adscripción</h3><p data-field="adscripcion"></p><a class="download-button" href="assets/regulations/adscripcion.pdf" download>Descargar reglamento</a></article>
+              <article class="content-card reveal"><h3>Trabajo dirigido</h3><p data-field="trabajo-dirigido"></p><a class="download-button" href="assets/regulations/trabajo-dirigido.pdf" download>Descargar reglamento</a></article>
+              <article class="content-card reveal"><h3>Diplomado</h3><p data-field="diplomado"></p><a class="download-button" href="assets/regulations/diplomado.pdf" download>Descargar reglamento</a></article>
+              <article class="content-card reveal"><h3>Tesis</h3><p data-field="tesis"></p><a class="download-button" href="assets/regulations/tesis.pdf" download>Descargar reglamento</a></article>
+              <article class="content-card reveal"><h3>Proyecto de grado</h3><p data-field="proyecto-de-grado"></p><a class="download-button" href="assets/regulations/proyecto-de-grado.pdf" download>Descargar reglamento</a></article>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="investigacion" class="site-section dark-section section">
-        <div class="section-label light reveal"><span>02</span> <span class="content-text">Investigación</span></div>
-        <div class="section-heading reveal"><h2>Diseñar también<br />es investigar.</h2><p class="section-intro">La investigación fortalece la producción de conocimiento desde nuestro contexto.</p></div>
-        <div class="research-grid">
-          <article class="feature-card reveal"><b>IF</b><h3>Investigación formal</h3><p data-field="investigacion-formal"></p></article>
-          <article class="feature-card reveal"><b>IFo</b><h3>Investigación formativa</h3><p data-field="investigacion-formativa"></p></article>
-          <article class="feature-card accent reveal"><b>DC</b><h3>Investigación de la carrera</h3><p data-field="investigacion-de-la-carrera"></p></article>
-          <article class="feature-card accent reveal"><b>CI</b><h3>Investigación del CIDIS</h3><p data-field="investigacion-del-cidis"></p></article>
+      <section id="investigacion" class="scroll-scene site-section dark-section section theme-research">
+        <div class="parallax-stage">
+          <div class="parallax-bg" style="background-image: url('assets/images/investigation-bg.jpg')" aria-hidden="true"></div>
+          <img class="parallax-characters" src="assets/images/investigation-characters.png" alt="" />
+        </div>
+        <div class="scroll-content">
+          <div class="section-heading reveal"><h3 class="section-kicker">Investigación</h3><h1>Investigar también es diseñar.</h1><p class="section-intro"></p></div>
+          <div class="research-grid">
+            <article class="feature-card reveal"><h3>Investigación formal</h3><p data-field="investigacion-formal"></p></article>
+            <article class="feature-card accent reveal"><h3>Investigación formativa</h3><p data-field="investigacion-formativa"></p></article>
+            <article class="feature-card accent reveal"><h3>Habilidades básicas</h3><p data-field="habilidades-basicas"></p></article>
+            <article class="feature-card reveal"><h3>Construcción conceptual</h3><p data-field="construccion-conceptual"></p></article>
+            <article class="feature-card reveal"><h3>Metodología</h3><p data-field="metodologia"></p></article>
+            <article class="feature-card accent reveal"><h3>Producción académica</h3><p data-field="produccion-academica"></p></article>
+            <article class="feature-card accent reveal"><h3>Habilidades digitales</h3><p data-field="habilidades-digitales"></p></article>
+          </div>
+          <div class="button-row reveal">
+            <details class="magazine-dropdown">
+              <summary>Revista</summary>
+              <div>
+                <a href="assets/magazines/Sanserif1.pdf" download>San Serif 1</a>
+                <a href="assets/magazines/Sanserif2.pdf" download>San Serif 2</a>
+              </div>
+            </details>
+            <a class="button research-download" href="assets/research.pdf" download><span class="research-download-label">Ver resultados</span> <span>↓</span></a>
+          </div>
         </div>
       </section>
 
-      <section id="interaccion" class="site-section section">
-        <div class="section-label reveal"><span>03</span> <span class="content-text">Interacción</span></div>
-        <div class="section-heading reveal"><h2>Aprender haciendo<br />con la comunidad.</h2></div>
-        <div class="split-panels">
-          <article class="interaction-card practices reveal"><span>01</span><h3>Prácticas preprofesionales</h3><p data-field="practicas-preprofesionales"></p></article>
-          <article class="interaction-card laboratory reveal"><span>02</span><h3>Laboratorio</h3><p data-field="laboratorio"></p></article>
+      <section id="interaccion" class="scroll-scene site-section section theme-paper">
+        <div class="parallax-stage">
+          <div class="parallax-bg" style="background-image: url('assets/images/interaction-bg.jpg')" aria-hidden="true"></div>
+          <img class="parallax-characters" src="assets/images/interaction-characters.png" alt="" />
+        </div>
+        <div class="scroll-content">
+          <div class="section-heading reveal"><h3 class="section-kicker">Interacción</h3><h1>Lideramos diálogos.</h1><p class="section-intro"></p></div>
+          <div class="split-panels">
+            <article class="interaction-card laboratory reveal"><h3>Prácticas preprofesionales</h3><p data-field="practicas-preprofesionales"></p></article>
+            <article class="interaction-card practices reveal"><h3>Convenios</h3><p data-field="convenios"></p></article>
+            <article class="interaction-card laboratory reveal"><h3>Relevancia</h3><p data-field="relevancia-practicas"></p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="laboratorios" class="scroll-scene site-section labs-section section theme-research">
+        <div class="parallax-stage">
+          <div class="parallax-bg" style="background-image: url('assets/images/labs-bg.jpg')" aria-hidden="true"></div>
+          <img class="parallax-characters" src="assets/images/labs-characters.png" alt="" />
+        </div>
+        <div class="scroll-content">
+          <div class="section-heading reveal"><h3 class="section-kicker">Laboratorios – MyClub</h3><h1>Espacios de producción creativa</h1></div>
+          <div class="content-grid labs-grid">
+            <article class="content-card reveal"><p data-field="laboratorios-myclub"></p></article>
+            <article class="content-card reveal"><h3>Relevancia del laboratorio</h3><p data-field="relevancia-laboratorio"></p></article>
+          </div>
         </div>
       </section>
 
       <section id="posgrado" class="postgraduate section">
         <div class="postgraduate-copy reveal">
-          <div class="section-label light"><span>04</span> <span class="content-text">Posgrado</span></div>
-          <h2>Seguir aprendiendo.<br />Seguir diseñando.</h2>
-          <p data-field="oferta-de-diplomados"></p>
-          <a class="button" href="#contacto"><span class="status-text">Consultar oferta</span> <span>↗</span></a>
+          <div class="postgraduate-main">
+            <h2>Seguir aprendiendo.<br />Seguir diseñando.</h2>
+            <p data-field="descripcion"></p>
+            <div class="postgraduate-list">
+              <p data-field="requisitos-licenciatura"></p>
+              <p data-field="requisitos-titulacion"></p>
+            </div>
+            <a class="button postgraduate-email" href="mailto:deupg@umss.edu"><span class="status-text">Consultar oferta</span> <span>↗</span></a>
+          </div>
+          <aside class="postgraduate-programs">
+            <h3>Programas de posgrado</h3>
+            <ul></ul>
+            <p data-field="programas"></p>
+          </aside>
         </div>
-        <div class="postgraduate-art reveal" aria-hidden="true"><b>DGCV</b></div>
       </section>
     </main>
 
     <footer id="contacto">
-      <div class="footer-heading">
-        <div class="section-label light"><span>05</span> <span class="content-text">Contacto</span></div>
-        <h2 class="contact-title">Conversemos.</h2>
-        <p class="contact-description"></p>
-      </div>
-      <div class="footer-top">
-        <img src="assets/id-dgcv.svg" alt="DGCV" />
-        <p class="footer-name">Diseño Gráfico y Comunicación Visual<br />Universidad Mayor de San Simón</p>
-        <div>
-          <span class="footer-location">Campus Central Las Cuadras · bloque nuevo, 3.er piso</span>
-          <a class="footer-email" href="mailto:direcciondgycv@umss.edu">direcciondgycv@umss.edu</a>
-          <span class="contact-phone">Número institucional por confirmar</span>
-          <span class="contact-social">Redes sociales próximamente</span>
-          <a href="https://www.umss.edu.bo/" target="_blank" rel="noreferrer">umss.edu.bo ↗</a>
+      <div class="scroll-scene footer-heading theme-contact">
+        <div class="parallax-stage">
+          <div class="parallax-bg" style="background-image: url('assets/images/contact-bg.jpg')" aria-hidden="true"></div>
+          <img class="parallax-characters" src="assets/images/contact-characters.png" alt="" />
+        </div>
+        <div class="scroll-content">
+          <h2 class="contact-title">Conversemos.</h2>
+          <p class="contact-description"></p>
+          <div class="footer-top">
+            <div class="footer-logos" aria-label="Instituciones">
+              <div class="footer-logo-item">
+                <img src="assets/umss.svg" alt="" />
+                <span>Universidad Mayor de San Simón</span>
+              </div>
+              <div class="footer-logo-item">
+                <img src="assets/fach.svg" alt="" />
+                <span>Facultad de Arquitectura y Ciencias del Hábitat</span>
+              </div>
+              <div class="footer-logo-item">
+                <img src="assets/id-dgcv.svg" alt="" />
+                <span>Carrera de Diseño Gráfico y Comunicación Visual</span>
+              </div>
+              <div class="social-buttons" aria-label="Redes sociales">
+                <a class="facebook" href="https://www.facebook.com/DGUMSS" target="_blank" rel="noreferrer" aria-label="Facebook">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.77l-.44 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06Z"/></svg>
+                </a>
+                <a class="instagram" href="https://www.instagram.com/dgycv_umss/" target="_blank" rel="noreferrer" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.81 5.81 0 0 1 22 7.8v8.4a5.81 5.81 0 0 1-5.8 5.8H7.8A5.81 5.81 0 0 1 2 16.2V7.8A5.81 5.81 0 0 1 7.8 2Zm0 2A3.81 3.81 0 0 0 4 7.8v8.4A3.81 3.81 0 0 0 7.8 20h8.4a3.81 3.81 0 0 0 3.8-3.8V7.8A3.81 3.81 0 0 0 16.2 4H7.8Zm8.7 2.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7.25A4.75 4.75 0 1 1 12 16.75 4.75 4.75 0 0 1 12 7.25Zm0 2A2.75 2.75 0 1 0 12 14.75 2.75 2.75 0 0 0 12 9.25Z"/></svg>
+                </a>
+                <a class="tiktok" href="https://www.tiktok.com/@direclzyw8h" target="_blank" rel="noreferrer" aria-label="TikTok">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2c.37 3.13 2.12 5 5.14 5.2v3.43a8.66 8.66 0 0 1-5.05-1.55v6.34c0 4.07-2.52 6.58-6.35 6.58-3.46 0-6.08-2.28-6.08-5.54 0-3.53 2.8-5.85 6.65-5.68.43.02.77.07 1.08.15v3.6a4.7 4.7 0 0 0-1.36-.2c-1.62 0-2.7.8-2.7 2.05 0 1.15.98 1.94 2.22 1.94 1.45 0 2.46-.84 2.46-2.78V2h3.99Z"/></svg>
+                </a>
+                <a class="whatsapp" href="https://wa.me/59161613202" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.82 14.01c-.24.68-1.42 1.3-1.96 1.38-.49.07-1.11.1-1.79-.11-.41-.13-.94-.31-1.62-.6-2.84-1.25-4.7-4.14-4.84-4.33-.14-.19-1.15-1.53-1.15-2.92s.73-2.07.99-2.35c.27-.28.58-.35.77-.35l.54.01c.17 0 .41-.07.63.48.23.56.79 1.94.86 2.08.07.15.12.31.02.5-.09.18-.14.3-.28.47-.14.17-.29.37-.42.5-.14.14-.28.28-.12.57.17.28.73 1.2 1.56 1.94 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.61-.07.16-.19.7-.82.89-1.09.19-.28.37-.23.63-.14.26.1 1.62.76 1.9.9.28.14.47.21.54.33.07.12.07.68-.17 1.33Z"/></svg>
+                </a>
+              </div>
+            </div>
+            <p class="footer-name">Diseño Gráfico y Comunicación Visual<br />Facultad de Arquitectura y Ciencias del Hábitat<br />Universidad Mayor de San Simón<br />Cochabamba - Bolivia</p>
+            <div class="footer-contact">
+              <a class="footer-location" href="https://maps.app.goo.gl/VewLRrCqxAZ5EoaA8" target="_blank" rel="noreferrer">Campus Las Cuadras - FAyCH, Edificio Nuevo, 3er piso</a>
+              <a class="footer-email" href="mailto:direcciondgycv@umss.edu">direcciondgycv@umss.edu</a>
+              <a class="contact-phone" href="https://wa.me/59161613202" target="_blank" rel="noreferrer">+591 61613202</a>
+              <a href="https://www.umss.edu.bo/" target="_blank" rel="noreferrer">umss.edu.bo ↗</a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">

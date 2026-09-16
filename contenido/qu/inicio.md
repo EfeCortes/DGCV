@@ -4,28 +4,27 @@
 Universidad Mayor de San Simón · Quchapampa
 
 ## Titular
-Yuyaykunata  
-rikuchinapaq  
-ruwayku.
+[contorno]Willakuq[/contorno] [acento]Yuyaykunata[/acento] ruwanchik.
 
 ## Descripción
-Yuyaykunata runakunawan tinkuchiq rikuna willaykunaman tikranapaq, kamay, allin yuyaywan qhawariy, imaymana ñan mask'ay ima yachachiy.
+Ética profesional, runa kaynin, tecnología, ciencia ima saphiwan yachakuqkunata wakichiyku, llaqtap rikuna willay sasachakuykunata riqsiyta chaymanta allinchayta atinankupaq.
 
 ## Misión
-Ciencia, tecnología, runa kaynin, ética ima saphiwan Diseño Gráfico y Comunicación Visualpi profesionales nisqakunata wakichiy; paykunaqa llaqtap munasqankunaman kutichiyta atinqanku.
+Diseño Gráfico y Comunicación Visual carreraqa Facultad de Arquitectura y Ciencias del Hábitat ukupi hatun yachay unidadmi. Ética, valores humanos, tecnología, ciencia ima saphiwan yachakuqkunata wakichin.
 
 ## Visión
-Diseño nisqapi, rikuna willaypi, yachay mask'aypi, llaqtawan llamk'aypi ima ñawpaq riq carrera kay.
+Nacionalpi internacionalpipas allin riqsisqa carrera kayta munayku, yachay mask'aq profesionales nisqakunata allin académico, científico, crítico yuyaywan wakichispa.
 
 ## Objetivos
-Suyup cultura, llaqta, ruway miraypaq allin yuyayniyuq, kamaq yachachiyta kallpachay.
+Diseño gráfico y rikuna willaypi profesionales nisqakunata wakichiy, llaqtap imaymana munasqankunapaq willay allichaykunata ruwanankupaq.
 
 ## Botón
 Carrerata  
 riqsiy
 
 ## Cinta
-- Rikuna identidad
-- Editorial diseño
-- Digital medios
-- Willay wakichiy
+- Diseño gráfico
+- Rikuna willay
+- Yachay mask'ay
+- Llaqtawan llamk'ay
+- Kamay ruray

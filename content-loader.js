@@ -1,37 +1,63 @@
-const CONTENT_FILES = {
-  general: "general.md",
-  inicio: "inicio.md",
-  licenciatura: "licenciatura.md",
-  investigacion: "investigacion.md",
-  interaccion: "interaccion.md",
-  posgrado: "posgrado.md",
-  contacto: "contacto.md",
-};
-
 const UI_TEXT = {
   es: {
     menu: "Menú",
     languageLabel: "Seleccionar idioma",
-    purposeLabel: "Nuestra orientación",
     mission: "Misión",
     vision: "Visión",
     objectives: "Objetivos",
-    degreeCards: ["¿Qué es la carrera?", "¿Qué hace la carrera?", "Modalidades de admisión", "Modalidades de titulación"],
-    researchCards: ["Investigación formal", "Investigación formativa", "Investigación de la carrera", "Investigación del CIDIS"],
-    interactionCards: ["Prácticas preprofesionales", "Laboratorio"],
+    admissionTitle: "Modalidades de admisión",
+    professorsLabel: "Nuestros docentes",
+    titulationTitle: "Modalidades de titulación",
+    degreeCards: ["Prueba de Suficiencia Académica (PSA)", "Cursos preuniversitarios", "Admisión especial", "Adscripción", "Trabajo dirigido", "Doble titulación, Diplomado", "Tesis", "Proyecto de Grado"],
+    downloadRegulation: "Descargar reglamento",
+    researchDownload: "Ver resultados",
+    researchCards: ["Investigación formal", "Investigación formativa", "Habilidades básicas", "Construcción conceptual", "Metodología", "Producción académica", "Habilidades digitales"],
+    interactionCards: ["Prácticas preprofesionales", "Convenios", "Relevancia"],
+    labsKicker: "Laboratorios – MyClub",
+    labsTitle: "Espacios de producción creativa",
+    magazineLabel: "Revista",
+    postgraduateProgramsLabel: "Programas de posgrado",
     heroAlt: "Estudiante de Diseño Gráfico trabajando en una tableta gráfica",
   },
   qu: {
     menu: "Akllana",
     languageLabel: "Simita akllay",
-    purposeLabel: "Ñanninchik",
     mission: "Ruwayninchik",
     vision: "Qhawariyninchik",
     objectives: "Munasqanchik",
-    degreeCards: ["¿Imataq kay carrera?", "¿Imatataq carrera ruwan?", "Yaykunapaq ñankuna", "Titulación nisqapa ñankuna"],
-    researchCards: ["Allin wakichisqa yachay mask'ay", "Yachachiq yachay mask'ay", "Carrerapa yachay mask'aynin", "CIDISpa yachay mask'aynin"],
-    interactionCards: ["Profesión ñawpaq prácticas", "Laboratorio"],
+    admissionTitle: "Yaykuna ñankuna",
+    professorsLabel: "Yachachiqkuna",
+    titulationTitle: "Titulación ñankuna",
+    degreeCards: ["PSA", "Universidad ñawpaq cursos", "Sapaq yaykuy", "Adscripción", "Pusarisqa llamk'ay", "Doble titulación, Diplomado", "Tesis", "Proyecto de grado"],
+    downloadRegulation: "Reglamento-ta uraykachiy",
+    researchDownload: "Resultados nisqata qhaway",
+    researchCards: ["Formal yachay mask'ay", "Formativa yachay mask'ay", "Saphichasqa yachaykuna", "Conceptual ruway", "Metodología", "Académico ruray", "Digital yachaykuna"],
+    interactionCards: ["Profesión ñawpaq prácticas", "Convenios", "Importancia"],
+    labsKicker: "Laboratorios – MyClub",
+    labsTitle: "Kamay ruray espacios",
+    magazineLabel: "Revista",
+    postgraduateProgramsLabel: "Qhipa yachay programas",
     heroAlt: "Diseño Gráfico yachakuq tableta gráficapi llamk'achkan",
+  },
+  en: {
+    menu: "Menu",
+    languageLabel: "Select language",
+    mission: "Mission",
+    vision: "Vision",
+    objectives: "Goals",
+    admissionTitle: "Admission pathways",
+    professorsLabel: "Our professors",
+    titulationTitle: "Degree completion options",
+    degreeCards: ["Academic Proficiency Test (PSA)", "Pre-university courses", "Special admission", "Internship modality", "Directed work", "Double degree, Diploma", "Thesis", "Degree project"],
+    downloadRegulation: "Download regulation",
+    researchDownload: "View results",
+    researchCards: ["Formal research", "Formative research", "Basic skills", "Conceptual construction", "Methodology", "Academic production", "Digital skills"],
+    interactionCards: ["Pre-professional practices", "Agreements", "Relevance"],
+    labsKicker: "Laboratories – MyClub",
+    labsTitle: "Creative production spaces",
+    magazineLabel: "Magazine",
+    postgraduateProgramsLabel: "Graduate programs",
+    heroAlt: "Graphic Design student working with a graphics tablet",
   },
 };
 
@@ -123,7 +149,11 @@ function applyQuechuaWordBreaks(language) {
 
   textNodes.forEach((node) => {
     const cleanText = node.nodeValue.replaceAll(SOFT_HYPHEN, "");
-    const minimumLength = node.parentElement?.closest("h1, h2, h3") ? 9 : 12;
+    if (node.parentElement?.closest("h1, h2, h3")) {
+      node.nodeValue = cleanText;
+      return;
+    }
+    const minimumLength = 12;
     node.nodeValue = language === "qu"
       ? cleanText.replace(
           /[A-Za-zÁÉÍÓÚÜÑáéíóúüñ'’]+/g,
@@ -155,14 +185,22 @@ function formatText(value, styled = false) {
 }
 
 const listItems = (value) => (value || "").split("\n").map((line) => line.replace(/^\s*-\s*/, "").trim()).filter(Boolean);
-const setText = (selector, value) => { const element = document.querySelector(selector); if (element && value) element.textContent = value; };
-const setHtml = (selector, value, styled = false) => { const element = document.querySelector(selector); if (element && value) element.innerHTML = formatText(value, styled); };
+const setText = (selector, value) => { const element = document.querySelector(selector); if (element) element.textContent = value ?? ""; };
+const setHtml = (selector, value, styled = false) => { const element = document.querySelector(selector); if (element) element.innerHTML = value == null ? "" : formatText(value, styled); };
+const splitOptions = (value) => (value || "").split(/;|\n/).map((item) => item.replace(/^\s*-\s*/, "").trim()).filter(Boolean);
+const setMultilineText = (selector, value) => {
+  const element = document.querySelector(selector);
+  if (!element) return;
+  element.innerHTML = (value || "").split("\n").map((line) => escapeHtml(line.trim())).filter(Boolean).join("<br>");
+};
 
 function applyGeneral(c) {
   const nav = listItems(c.navegacion);
   document.querySelectorAll(".main-nav a").forEach((link, index) => { if (nav[index]) link.textContent = nav[index]; });
-  setHtml(".footer-name", c["nombre-institucional"]);
+  setMultilineText(".footer-name", c["nombre-institucional"]);
   setText(".footer-location", c["ubicacion-breve"]);
+  const location = document.querySelector(".footer-location");
+  if (location) location.href = "https://maps.app.goo.gl/VewLRrCqxAZ5EoaA8";
   setText(".footer-email", c.correo);
   setText(".footer-status", c["estado-del-sitio"]);
   const email = document.querySelector(".footer-email");
@@ -170,37 +208,40 @@ function applyGeneral(c) {
 }
 
 function applyInicio(c) {
-  setHtml(".hero h1", c.titular, true);
-  setText(".hero-bottom > p", c.descripcion);
-  setHtml(".round-link .content-text", c.boton);
+  setHtml(".purpose-hero-title", c.titular, true);
   setText(".mission", c.mision); setText(".vision", c.vision); setText(".objectives", c.objetivos);
-  const items = listItems(c.cinta);
-  if (items.length) document.querySelector(".ticker-track").innerHTML = [...items, ...items].map((item, index) => `<span>${escapeHtml(item)}</span><i>${index % 2 ? "▲" : "●"}</i>`).join("");
 }
 
 function applySection(name, c, fields) {
-  setText(`#${name} .section-label .content-text`, c.etiqueta);
-  setHtml(`#${name} .section-heading h2, #${name} > div > h2`, c.titular);
+  setHtml(`#${name} .section-heading h1, #${name} .section-heading h2, #${name} > div > h2`, c.titular);
+  setText(`#${name} .section-kicker`, c.etiqueta);
   setText(`#${name} .section-intro`, c.introduccion);
   fields.forEach((field) => setText(`#${name} [data-field="${field}"]`, c[field]));
 }
 
 function applyLicenciatura(c) {
-  applySection("licenciatura", c, ["que-es-la-carrera", "que-hace-la-carrera", "modalidades-de-admision", "modalidades-de-titulacion"]);
-  const facts = listItems(c.datos);
-  document.querySelectorAll("#licenciatura .facts > div").forEach((fact, index) => {
-    const [value, label] = (facts[index] || "").split("|").map((part) => part.trim());
-    if (value) fact.querySelector("strong").textContent = value;
-    if (label) fact.querySelector("span").textContent = label;
-  });
+  applySection("licenciatura", c, ["formacion", "admision-psa", "admision-preuniversitario", "admision-especial", "requisitos", "docentes", "adscripcion", "trabajo-dirigido", "diplomado", "tesis", "proyecto-de-grado"]);
+  const requirements = document.querySelector('[data-field="requisitos"]');
+  if (requirements) {
+    const requirementText = (c.requisitos || "").replace(/^[^:]+:\s*/, "").replace(/\.$/, "");
+    requirements.innerHTML = requirementText
+      .split(/;|\n|,\s*/)
+      .map((item) => item.replace(/^\s*-\s*/, "").trim())
+      .filter(Boolean)
+      .map((item) => `<span>${escapeHtml(item)}</span>`)
+      .join("");
+  }
 }
 
 function applyContacto(c) {
-  setText("#contacto .section-label .content-text", c.etiqueta);
   setHtml(".contact-title", c.titular);
   setText(".contact-description", c.descripcion);
-  setText(".contact-social", c["redes-sociales"]);
   setText(".contact-phone", c.numero);
+  const phoneLink = document.querySelector(".contact-phone");
+  if (phoneLink && c.numero) {
+    const digits = c.numero.replace(/[^\d]/g, "");
+    phoneLink.href = `https://wa.me/${digits}`;
+  }
   setText(".footer-email", c.correo);
 }
 
@@ -208,13 +249,23 @@ function applyInterface(language) {
   const text = UI_TEXT[language];
   document.documentElement.lang = language;
   setText(".menu-label", text.menu);
-  setText(".purpose-label", text.purposeLabel);
   setText(".mission-title", text.mission);
   setText(".vision-title", text.vision);
   setText(".objectives-title", text.objectives);
+  setText(".professors-label", text.professorsLabel);
+  setText("#laboratorios .section-kicker", text.labsKicker);
+  setText("#laboratorios .section-heading h1", text.labsTitle);
+  setText(".magazine-dropdown summary", text.magazineLabel);
+  setText(".postgraduate-programs h3", text.postgraduateProgramsLabel);
 
   document.querySelector(".language-switcher")?.setAttribute("aria-label", text.languageLabel);
-  document.querySelector(".hero-media img")?.setAttribute("alt", text.heroAlt);
+  document.querySelector("#inicio .parallax-characters")?.setAttribute("alt", text.heroAlt);
+  setText(".admission-title", text.admissionTitle);
+  setText(".titulation-title", text.titulationTitle);
+  setText(".research-download-label", text.researchDownload);
+  document.querySelectorAll(".download-button").forEach((button) => {
+    button.textContent = text.downloadRegulation;
+  });
 
   document.querySelectorAll("#licenciatura .content-card h3").forEach((heading, index) => {
     if (text.degreeCards[index]) heading.textContent = text.degreeCards[index];
@@ -250,10 +301,18 @@ async function loadContent(language = currentLanguage) {
     }
 
     applyGeneral(c.general); applyInicio(c.inicio); applyLicenciatura(c.licenciatura);
-    applySection("investigacion", c.investigacion, ["investigacion-formal", "investigacion-formativa", "investigacion-de-la-carrera", "investigacion-del-cidis"]);
-    applySection("interaccion", c.interaccion, ["practicas-preprofesionales", "laboratorio"]);
-    applySection("posgrado", c.posgrado, ["oferta-de-diplomados"]);
+    applySection("investigacion", c.investigacion, ["investigacion-formal", "investigacion-formativa", "habilidades-basicas", "construccion-conceptual", "metodologia", "produccion-academica", "habilidades-digitales"]);
+    applySection("interaccion", c.interaccion, ["practicas-preprofesionales", "convenios", "relevancia-practicas"]);
+    ["laboratorios-myclub", "relevancia-laboratorio"].forEach((field) => setText(`#laboratorios [data-field="${field}"]`, c.interaccion[field]));
+    applySection("posgrado", c.posgrado, ["descripcion", "requisitos-licenciatura", "requisitos-titulacion", "programas", "oferta-de-diplomados"]);
+    setHtml("#posgrado h2", c.posgrado.titular);
+    const postgraduatePrograms = document.querySelector(".postgraduate-programs ul");
+    if (postgraduatePrograms) {
+      postgraduatePrograms.innerHTML = splitOptions(c.posgrado.programas).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+    }
     setText("#posgrado .status-text", c.posgrado.estado);
+    const postgraduateEmail = document.querySelector(".postgraduate-email");
+    if (postgraduateEmail && c.posgrado["correo-posgrado"]) postgraduateEmail.href = `mailto:${c.posgrado["correo-posgrado"]}`;
     applyContacto(c.contacto);
     applyInterface(language);
     applyQuechuaWordBreaks(language);

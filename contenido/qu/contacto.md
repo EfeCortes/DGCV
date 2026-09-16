@@ -7,13 +7,14 @@ Rimanakuy
 Rimanakusunchik.
 
 ## Descripción
-Carreraqa Las Cuadras chawpi campuspi, Jordán tukukuyninpi, Facultad de Arquitectura y Ciencias del Hábitatpa musuq wasinpi llamk'an.
+Admisión, académico actividades, prácticas, posgrado utaq institución willaymanta tapuykunayki kanchu? Qillqawayku, Diseño Gráfico y Comunicación Visual ñanniykimanta rimanakusunchik.
 
 ## Redes sociales
-Kaypi carrerapa redes sociales oficiales nisqankuna qhipaman riqsichisqa kanqa.
+Facebook: https://www.facebook.com/DGUMSS/?locale=es_LA · Instagram: https://www.instagram.com/dgycv_umss/ · TikTok: https://www.tiktok.com/@direclzyw8h
 
 ## Número
-Instituciónpa yupayninqa chiqanchanaraqmi.
++591 61613202
 
 ## Correo
 direcciondgycv@umss.edu
+

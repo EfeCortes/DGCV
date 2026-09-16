@@ -7,13 +7,14 @@ Contacto
 Conversemos.
 
 ## Descripción
-La carrera funciona en el Campus Central Las Cuadras, final Jordán, en el bloque nuevo de la Facultad de Arquitectura y Ciencias del Hábitat.
+¿Tienes dudas sobre admisión, actividades académicas, prácticas, posgrado o información institucional? Escríbenos y conversemos sobre tu camino en Diseño Gráfico y Comunicación Visual.
 
 ## Redes sociales
-Próximamente se publicarán aquí los enlaces oficiales de la carrera.
+Facebook: https://www.facebook.com/DGUMSS/?locale=es_LA · Instagram: https://www.instagram.com/dgycv_umss/ · TikTok: https://www.tiktok.com/@direclzyw8h
 
 ## Número
-Número institucional por confirmar.
++591 61613202
 
 ## Correo
 direcciondgycv@umss.edu
+

@@ -24,6 +24,7 @@ function readLanguage(folder) {
 const content = {
   es: readLanguage("."),
   qu: readLanguage("qu"),
+  en: readLanguage("en"),
 };
 
 fs.writeFileSync(

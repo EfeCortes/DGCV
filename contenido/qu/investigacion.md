@@ -4,20 +4,29 @@
 Yachay mask'ay
 
 ## Titular
-Diseñoyqa yachayta  
-mask'aypis kan.
+Mask'aypis diseñoymi.
 
 ## Introducción
-Yachay mask'ayqa musuq yachayta paqarichin, rikuna willay sasachakuykunata kawsayninchikmanta unanchayta yanapan.
+Yachay mask'ayqa crítico yuyayta, académico rurayta, llaqtap sasachakuykunaman diseño chaymanta rikuna willaywan kutichiyta kallpachan.
 
 ## Investigación formal
-Allin wakichisqa ñankunawan, objetivos nisqakunawan ima proyectos ruwasqa; diseño, rikuna willay ima yachayninman musuq yachayta yapanapaq.
+Formal yachay mask'ayqa CIIDISpa makinpim kachkan. Carreraqa kimsa yachay mask'ay ñanwan llamk'an; chay ñankuna yachakuqkunap académico llamk'ayninta pusarin. Taller III asignaturapi, Arq. Jaime Alzérreca coordinaciónwan, diseño chaymanta rikuna willay sasachakuykunata llamk'akun, llaqtawan tinkuchispa.
 
 ## Investigación formativa
-Yachachina wakichiykunapi, talleres nisqakunapi ima ruwasqa ñankuna; yachakuqkuna qhawayta, tapuyta, qillqayta, akllasqankuta yuyaywan sayachiyta yachakunankupaq.
+Mask'anapaq munasqa yachaykunata chaymanta habilidadeskunata yachachin. Sapa materia yachakuqkunaman yachay mask'ay ruwanapaq herramientas qun.
 
-## Investigación de la carrera
-Carrerapa yachay mask'ay ñankunata, proyectos, lluqsiyninkunata, llamk'aq tantakunata ima riqsichinapaq kiti.
+## Habilidades básicas
+Identificar, analizar, discutir, comunicar ima ruwanapaq lógico chaymanta intelectual ñankuna.
 
-## Investigación del CIDIS
-Centro de Investigación en Diseñopa ruwasqanta tinkuchinapaq, riqsichinapaq ima kiti.
+## Construcción conceptual
+Conceptos, paradigmas, enfoques, metodologías ima riqsiy; wak yuyaykunata hap'iy, musuq yuyay paqarichiy, kikin postura defendey.
+
+## Metodología
+Sasachakuyta churay, willayta huñuy, datos nisqata t'aqwiriy, willayta kutichiy chaymanta yachayta paqarichiy.
+
+## Producción académica
+Académico llamk'aykunap formatos nisqankuna ruwana, yachayta willana, ética criterioswan cita referencia ima llamk'achispa.
+
+## Habilidades digitales
+Digital herramientakuna willayta mask'aypaq wakichiy; confiable fuentes, bases de datos, gestores bibliográficos ima llamk'achiy.
+

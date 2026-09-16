@@ -1,7 +1,7 @@
 # Tukuy qillqasqa
 
 ## Navegación
-- Licenciatura
+- Yachachiy
 - Yachay mask'ay
 - Llaqtawan llamk'ay
 - Qhipa yachay
@@ -11,14 +11,16 @@
 Diseño gráficota yachakuyta munani
 
 ## Nombre institucional
-Diseño Gráfico y Comunicación Visual  
+Diseño Gráfico y Comunicación Visual
+Facultad de Arquitectura y Ciencias del Hábitat
 Universidad Mayor de San Simón
-
-## Ubicación breve
-Las Cuadras chawpi campuspi · musuq wasi, kimsa ñiqin pata
+Cochabamba - Bolivia
 
 ## Correo
 direcciondgycv@umss.edu
 
+## Ubicación breve
+Campus Las Cuadras - FAyCH, Edificio Nuevo, 3er piso
+
 ## Estado del sitio
-Web nisqa ruwakuchkan · Ñawpaq rikuchiy
+Web ruwakuchkan · Ñawpaq versión

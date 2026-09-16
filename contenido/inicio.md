@@ -4,28 +4,27 @@
 Universidad Mayor de San Simón · Cochabamba
 
 ## Titular
-Diseñamos  
-[acento]ideas[/acento] que  
-[contorno]comunican.[/contorno]
+Diseñamos [acento]Ideas[/acento] que [contorno]comunican.[/contorno]
 
 ## Descripción
-Formación creativa, crítica y estratégica para transformar mensajes en experiencias visuales que conectan con las personas.
+Formamos estudiantes con ética profesional, valores humanos y base tecnológica y científica para identificar y resolver problemas de comunicación visual de la sociedad.
 
 ## Misión
-Formar profesionales en Diseño Gráfico y Comunicación Visual con bases científicas, tecnológicas, humanísticas y éticas, capaces de responder a las necesidades de la sociedad.
+La carrera de Diseño Gráfico y Comunicación Visual es una unidad académica de estudios superiores de la Facultad de Arquitectura y Ciencias del Hábitat. Forma estudiantes con ética profesional, valores humanos y una base tecnológica y científica que contribuye a identificar y resolver problemas de comunicación visual de la sociedad en su conjunto.
 
 ## Visión
-Ser una carrera referente en la formación, investigación e interacción social del diseño y la comunicación visual.
+Ser reconocida como referente nacional e internacional en la formación de profesionales investigadores con calidad académica y científica, pensamiento crítico, ética profesional y compromiso con el desarrollo regional y nacional.
 
 ## Objetivos
-Impulsar una formación crítica y creativa que aporte al desarrollo cultural, social y productivo del país.
+Formar profesionales en diseño gráfico y comunicación visual capaces de proveer soluciones de comunicación a la diversidad de necesidades de la sociedad.
 
 ## Botón
 Conoce  
 la carrera
 
 ## Cinta
-- Identidad visual
-- Diseño editorial
-- Medios digitales
-- Comunicación estratégica
+- Diseño gráfico
+- Comunicación visual
+- Investigación
+- Interacción social
+- Producción creativa
