@@ -202,10 +202,19 @@ h3 {
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
+  background-image: var(--desktop-bg);
   opacity: var(--image-opacity);
   will-change: opacity;
 }
-.hero-background { background-image: url("assets/images/home-bg.jpg"); }
+.hero-background { 
+  --desktop-bg: url("assets/images/home-bg.jpg");
+  --mobile-bg: url("assets/images/home-bg-mobile.jpg");
+}
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-image: var(--mobile-bg, var(--desktop-bg));
+  }
+}
 .parallax-characters {
   z-index: 1;
   object-fit: cover;

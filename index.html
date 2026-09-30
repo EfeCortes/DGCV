@@ -48,11 +48,14 @@
       <section id="inicio" class="scroll-scene hero theme-hero">
         <div class="parallax-stage">
           <div class="parallax-bg hero-background" role="img" aria-label="Bienvenida a Diseño Gráfico"></div>
-          <img
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/home-characters-mobile.png" />
+            <img
             class="parallax-characters hero-character"
             src="assets/images/home-characters.png"
             alt="Personaje ilustrado trabajando en una tableta gráfica"
           />
+          </picture>
         </div>
         <div id="proposito" class="scroll-content purpose-strip">
           <h1 class="purpose-hero-title reveal"></h1>
@@ -67,8 +70,11 @@
       <section id="licenciatura" class="site-section section">
         <div class="scroll-scene theme-formation">
           <div class="parallax-stage">
-            <div class="parallax-bg" style="background-image: url('assets/images/formation-bg.jpg')" aria-hidden="true"></div>
+            <div class="parallax-bg" style="--desktop-bg: url('assets/images/formation-bg.jpg'); --mobile-bg: url('assets/images/formation-bg-mobile.jpg');" aria-hidden="true"></div>
+            <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/formation-characters-mobile.png" />
             <img class="parallax-characters" src="assets/images/formation-characters.png" alt="" />
+          </picture>
           </div>
           <div class="scroll-content">
             <div class="section-heading reveal">
@@ -87,8 +93,11 @@
 
         <div class="scroll-scene theme-formation">
           <div class="parallax-stage">
-            <div class="parallax-bg" style="background-image: url('assets/images/admission-bg.jpg')" aria-hidden="true"></div>
+            <div class="parallax-bg" style="--desktop-bg: url('assets/images/admission-bg.jpg'); --mobile-bg: url('assets/images/admission-bg-mobile.jpg');" aria-hidden="true"></div>
+            <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/admission-characters-mobile.png" />
             <img class="parallax-characters" src="assets/images/admission-characters.png" alt="" />
+          </picture>
           </div>
           <div class="scroll-content">
             <div class="subsection-heading reveal">
@@ -125,8 +134,11 @@
 
         <div class="scroll-scene theme-titulation">
           <div class="parallax-stage">
-            <div class="parallax-bg" style="background-image: url('assets/images/titulation-bg.jpg')" aria-hidden="true"></div>
+            <div class="parallax-bg" style="--desktop-bg: url('assets/images/titulation-bg.jpg'); --mobile-bg: url('assets/images/titulation-bg-mobile.jpg');" aria-hidden="true"></div>
+            <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/titulation-characters-mobile.png" />
             <img class="parallax-characters" src="assets/images/titulation-characters.png" alt="" />
+          </picture>
           </div>
           <div class="scroll-content">
             <div class="subsection-heading reveal">
@@ -146,8 +158,11 @@
 
       <section id="investigacion" class="scroll-scene site-section dark-section section theme-research">
         <div class="parallax-stage">
-          <div class="parallax-bg" style="background-image: url('assets/images/investigation-bg.jpg')" aria-hidden="true"></div>
-          <img class="parallax-characters" src="assets/images/investigation-characters.png" alt="" />
+          <div class="parallax-bg" style="--desktop-bg: url('assets/images/investigation-bg.jpg'); --mobile-bg: url('assets/images/investigation-bg-mobile.jpg');" aria-hidden="true"></div>
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/investigation-characters-mobile.png" />
+            <img class="parallax-characters" src="assets/images/investigation-characters.png" alt="" />
+          </picture>
         </div>
         <div class="scroll-content">
           <div class="section-heading reveal"><h3 class="section-kicker">Investigación</h3><h1>Investigar también es diseñar.</h1><p class="section-intro"></p></div>
@@ -175,8 +190,11 @@
 
       <section id="interaccion" class="scroll-scene site-section section theme-paper">
         <div class="parallax-stage">
-          <div class="parallax-bg" style="background-image: url('assets/images/interaction-bg.jpg')" aria-hidden="true"></div>
-          <img class="parallax-characters" src="assets/images/interaction-characters.png" alt="" />
+          <div class="parallax-bg" style="--desktop-bg: url('assets/images/interaction-bg.jpg'); --mobile-bg: url('assets/images/interaction-bg-mobile.jpg');" aria-hidden="true"></div>
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/interaction-characters-mobile.png" />
+            <img class="parallax-characters" src="assets/images/interaction-characters.png" alt="" />
+          </picture>
         </div>
         <div class="scroll-content">
           <div class="section-heading reveal"><h3 class="section-kicker">Interacción</h3><h1>Lideramos diálogos.</h1><p class="section-intro"></p></div>
@@ -190,8 +208,11 @@
 
       <section id="laboratorios" class="scroll-scene site-section labs-section section theme-research">
         <div class="parallax-stage">
-          <div class="parallax-bg" style="background-image: url('assets/images/labs-bg.jpg')" aria-hidden="true"></div>
-          <img class="parallax-characters" src="assets/images/labs-characters.png" alt="" />
+          <div class="parallax-bg" style="--desktop-bg: url('assets/images/labs-bg.jpg'); --mobile-bg: url('assets/images/labs-bg-mobile.jpg');" aria-hidden="true"></div>
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/labs-characters-mobile.png" />
+            <img class="parallax-characters" src="assets/images/labs-characters.png" alt="" />
+          </picture>
         </div>
         <div class="scroll-content">
           <div class="section-heading reveal"><h3 class="section-kicker">Laboratorios – MyClub</h3><h1>Espacios de producción creativa</h1></div>
@@ -225,8 +246,11 @@
     <footer id="contacto">
       <div class="scroll-scene footer-heading theme-contact">
         <div class="parallax-stage">
-          <div class="parallax-bg" style="background-image: url('assets/images/contact-bg.jpg')" aria-hidden="true"></div>
-          <img class="parallax-characters" src="assets/images/contact-characters.png" alt="" />
+          <div class="parallax-bg" style="--desktop-bg: url('assets/images/contact-bg.jpg'); --mobile-bg: url('assets/images/contact-bg-mobile.jpg');" aria-hidden="true"></div>
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/contact-characters-mobile.png" />
+            <img class="parallax-characters" src="assets/images/contact-characters.png" alt="" />
+          </picture>
         </div>
         <div class="scroll-content">
           <h2 class="contact-title">Conversemos.</h2>
