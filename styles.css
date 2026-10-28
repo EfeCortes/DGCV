@@ -208,7 +208,10 @@ h3 {
 }
 .hero-background { 
   --desktop-bg: url("assets/images/home-bg.jpg");
-  --mobile-bg: url("assets/images/home-bg-mobile.jpg");
+  --mobile-bg: url("assets/images/movil/home-bg.jpg");
+}
+.parallax-stage picture {
+  display: contents;
 }
 @media (max-width: 768px) {
   .parallax-bg {
