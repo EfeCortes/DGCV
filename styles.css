@@ -892,6 +892,28 @@ html[lang="qu"] .contact-phone { hyphens: manual; }
   .footer-bottom { flex-direction: column; }
 }
 
+/* En movil horizontal se ocultan por completo las imagenes parallax para dejar espacio al contenido */
+@media (orientation: landscape) and (max-height: 560px) {
+  .parallax-stage {
+    display: none !important;
+  }
+  .scroll-scene,
+  .footer-heading {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+  .scroll-content,
+  .footer-heading .scroll-content {
+    position: static !important;
+    min-height: auto !important;
+    margin: 0 auto !important;
+    padding: 70px 0 50px !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

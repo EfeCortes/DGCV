@@ -163,15 +163,30 @@ function progressBetween(progress, start, end) {
 
 function updateSceneHeights() {
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
-  const isMobile = window.innerWidth <= 768;
+  const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1;
+  const isMobile = viewportWidth <= 768;
+  const isMobileLandscape = viewportHeight <= 560 && viewportWidth > viewportHeight;
+
+  if (isMobileLandscape) {
+    parallaxScenes.forEach(({ scene }) => {
+      if (scene) {
+        scene.style.minHeight = "auto";
+        scene.style.setProperty("--content-opacity", "1");
+        scene.style.setProperty("--image-opacity", "0");
+        scene.style.setProperty("--content-y", "0px");
+      }
+    });
+    return;
+  }
+
   // Recorrido base consistente e identico para todas las escenas (incluyendo contacto)
-  const baseTravel = isMobile ? 0.50 : 1.05;
+  const baseTravel = isMobile ? 0.45 : 1.05;
 
   parallaxScenes.forEach(({ scene, content }) => {
     if (!scene || !content) return;
     const contentOverflow = Math.max(0, content.scrollHeight - viewportHeight);
     const overflowTravel = contentOverflow > 0
-      ? (isMobile ? contentOverflow * 0.9 : contentOverflow / 0.20)
+      ? (isMobile ? contentOverflow * 0.85 : contentOverflow / 0.20)
       : 0;
     const sceneHeight = viewportHeight * (1 + baseTravel) + overflowTravel;
     scene.style.minHeight = `${Math.round(sceneHeight)}px`;
@@ -180,7 +195,11 @@ function updateSceneHeights() {
 
 function renderParallax() {
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
+  const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1;
   const isMobile = window.innerWidth <= 768;
+  const isMobileLandscape = viewportHeight <= 560 && viewportWidth > viewportHeight;
+
+  if (isMobileLandscape) return;
 
   parallaxScenes.forEach(({ scene, stage, background, characters, content }) => {
     if (!stage || !background || !characters || !content) return;
@@ -190,20 +209,18 @@ function renderParallax() {
     const progress = clamp(-rect.top / travel);
     const contentOverflow = Math.max(0, content.scrollHeight - viewportHeight);
 
-    // Animacion fluida y sincronizada
-    const growthProgress = progressBetween(progress, 0.04, isMobile ? 0.24 : 0.32);
-    // Fundido gradual sin dejar vacio negro
-    const imageFadeProgress = progressBetween(progress, isMobile ? 0.20 : 0.30, isMobile ? 0.65 : 0.65);
-    const contentProgress = progressBetween(progress, isMobile ? 0.18 : 0.38, isMobile ? 0.50 : 0.58);
-    const contentScrollProgress = progressBetween(progress, isMobile ? 0.45 : 0.70, 0.96);
+    // Animacion y fundidos rapidos en movil para visibilidad clara e inmediata de titulos
+    const growthProgress = progressBetween(progress, 0.02, isMobile ? 0.16 : 0.32);
+    const imageFadeProgress = progressBetween(progress, isMobile ? 0.02 : 0.30, isMobile ? 0.16 : 0.65);
+    const contentProgress = progressBetween(progress, isMobile ? 0.03 : 0.38, isMobile ? 0.15 : 0.58);
+    const contentScrollProgress = progressBetween(progress, isMobile ? 0.40 : 0.70, 0.96);
     
-    const characterScale = 1 + growthProgress * (isMobile ? 0.18 : 0.28);
+    const characterScale = 1 + growthProgress * (isMobile ? 0.15 : 0.28);
     // Base firme al piso sin recorte
     const characterY = 0;
     const contentY = -contentOverflow * contentScrollProgress;
 
-    // En movil la imagen se mantiene tenuemente de fondo (18%) para evitar el vacio negro absoluto
-    const imageOpacity = 1 - imageFadeProgress * (isMobile ? 0.82 : 1.0);
+    const imageOpacity = 1 - imageFadeProgress;
 
     scene.style.setProperty("--image-opacity", imageOpacity.toFixed(4));
     scene.style.setProperty("--content-opacity", contentProgress.toFixed(4));
@@ -228,6 +245,12 @@ if (parallaxScenes.length) {
   window.addEventListener("resize", () => {
     updateSceneHeights();
     scheduleParallaxRender();
+  });
+  window.addEventListener("orientationchange", () => {
+    setTimeout(() => {
+      updateSceneHeights();
+      scheduleParallaxRender();
+    }, 100);
   });
   window.addEventListener("load", () => {
     updateSceneHeights();
