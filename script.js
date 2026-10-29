@@ -167,15 +167,21 @@ function renderParallax() {
 
     const rect = scene.getBoundingClientRect();
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
+    const isMobile = window.innerWidth <= 768;
     const isContact = scene.classList.contains("footer-heading");
     const growsForwardOnly = scene.classList.contains("hero") || scene.classList.contains("theme-titulation");
     const contentOverflow = Math.max(0, content.scrollHeight - viewportHeight);
-    const contentScrollSegment = isContact ? 1 : 0.20;
+    
+    // On mobile, scroll duration is cut in half
+    const contentScrollSegment = isContact ? 1 : (isMobile ? 0.40 : 0.20);
     const overflowTravel = contentOverflow > 0 && !isContact ? contentOverflow / contentScrollSegment : 0;
-    const minimumSceneHeight = viewportHeight * (isContact ? 1.55 : 2.05);
+    const baseTravel = isMobile
+      ? (isContact ? 0.28 : 0.52)
+      : (isContact ? 0.55 : 1.05);
+    const minimumSceneHeight = viewportHeight * (1 + baseTravel);
     const neededSceneHeight = isContact
-      ? viewportHeight * 1.55
-      : viewportHeight * 2.0 + overflowTravel;
+      ? minimumSceneHeight
+      : minimumSceneHeight + overflowTravel;
     scene.style.minHeight = `${Math.max(minimumSceneHeight, neededSceneHeight).toFixed(0)}px`;
 
     const travel = Math.max(1, rect.height - viewportHeight);
@@ -183,12 +189,10 @@ function renderParallax() {
     const growthProgress = progressBetween(progress, isContact ? 0.08 : 0.12, isContact ? 0.28 : 0.32);
     const imageFadeProgress = progressBetween(progress, isContact ? 0.28 : 0.34, isContact ? 0.48 : 0.52);
     const contentProgress = progressBetween(progress, isContact ? 0.38 : 0.44, isContact ? 0.56 : 0.60);
-    const contentScrollProgress = isContact ? 0 : progressBetween(progress, 0.76, 0.96);
-    const characterScale = 1 + growthProgress * 0.3;
-    const baseCharacterY = viewportHeight * (isContact ? 0.025 : 0.04);
-    const characterY = growsForwardOnly
-      ? 0
-      : baseCharacterY + growthProgress * viewportHeight * (isContact ? 0.035 : 0.055);
+    const contentScrollProgress = isContact ? 0 : progressBetween(progress, isMobile ? 0.60 : 0.76, 0.96);
+    const characterScale = 1 + growthProgress * (isMobile ? 0.2 : 0.28);
+    // On desktop, characters stay anchored firmly to the bottom margin
+    const characterY = 0;
     const contentY = -contentOverflow * contentScrollProgress;
 
     scene.style.setProperty("--image-opacity", (1 - imageFadeProgress).toFixed(4));

@@ -217,13 +217,18 @@ h3 {
   .parallax-bg {
     background-image: var(--mobile-bg, var(--desktop-bg));
   }
+  .parallax-characters {
+    object-fit: cover;
+    object-position: center bottom;
+    transform-origin: center bottom;
+  }
 }
 .parallax-characters {
   z-index: 1;
-  object-fit: cover;
-  object-position: center top;
-  transform: translate3d(0, var(--character-y), 0) scale(var(--character-scale));
-  transform-origin: center center;
+  object-fit: contain;
+  object-position: center bottom;
+  transform: translate3d(0, var(--character-y, 0px), 0) scale(var(--character-scale));
+  transform-origin: center bottom;
   opacity: var(--image-opacity);
   will-change: transform, opacity;
 }
@@ -807,7 +812,7 @@ html[lang="qu"] .contact-phone { hyphens: manual; }
   }
   h1 { font-size: clamp(2.55rem, 9vw, 5rem); }
   h2 { font-size: clamp(2.35rem, 8vw, 4.4rem); }
-  .scroll-scene { min-height: 200svh; }
+  .scroll-scene { min-height: 152svh; }
   .scroll-content { width: min(calc(100vw - 8vw), var(--content-max)); }
   .formation-copy-grid,
   .admission-grid,
@@ -864,7 +869,7 @@ html[lang="qu"] .contact-phone { hyphens: manual; }
   }
   .parallax-characters,
   .hero-character {
-    object-position: center top;
+    object-position: center bottom;
   }
   .scroll-content {
     width: min(calc(100vw - 10vw), var(--content-max));
