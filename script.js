@@ -161,43 +161,51 @@ function progressBetween(progress, start, end) {
   return clamp((progress - start) / (end - start));
 }
 
+function updateSceneHeights() {
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
+  const isMobile = window.innerWidth <= 768;
+  // Recorrido base consistente e identico para todas las escenas (incluyendo contacto)
+  const baseTravel = isMobile ? 0.50 : 1.05;
+
+  parallaxScenes.forEach(({ scene, content }) => {
+    if (!scene || !content) return;
+    const contentOverflow = Math.max(0, content.scrollHeight - viewportHeight);
+    const overflowTravel = contentOverflow > 0
+      ? (isMobile ? contentOverflow * 0.9 : contentOverflow / 0.20)
+      : 0;
+    const sceneHeight = viewportHeight * (1 + baseTravel) + overflowTravel;
+    scene.style.minHeight = `${Math.round(sceneHeight)}px`;
+  });
+}
+
 function renderParallax() {
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
+  const isMobile = window.innerWidth <= 768;
+
   parallaxScenes.forEach(({ scene, stage, background, characters, content }) => {
     if (!stage || !background || !characters || !content) return;
 
     const rect = scene.getBoundingClientRect();
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
-    const isMobile = window.innerWidth <= 768;
-    const isContact = scene.classList.contains("footer-heading");
-    const growsForwardOnly = scene.classList.contains("hero") || scene.classList.contains("theme-titulation");
-    const contentOverflow = Math.max(0, content.scrollHeight - viewportHeight);
-    
-    // In mobile, make parallax travel very quick and brisk (half the travel)
-    const contentScrollSegment = isContact ? 1 : 0.20;
-    const overflowTravel = contentOverflow > 0 && !isContact
-      ? (isMobile ? contentOverflow * 0.85 : contentOverflow / contentScrollSegment)
-      : 0;
-    const baseTravel = isMobile
-      ? (isContact ? 0.15 : 0.28)
-      : (isContact ? 0.55 : 1.05);
-    const minimumSceneHeight = viewportHeight * (1 + baseTravel);
-    const neededSceneHeight = isContact
-      ? minimumSceneHeight
-      : minimumSceneHeight + overflowTravel;
-    scene.style.minHeight = `${Math.max(minimumSceneHeight, neededSceneHeight).toFixed(0)}px`;
-
     const travel = Math.max(1, rect.height - viewportHeight);
     const progress = clamp(-rect.top / travel);
-    const growthProgress = progressBetween(progress, isMobile ? 0.04 : 0.12, isMobile ? 0.20 : 0.32);
-    const imageFadeProgress = progressBetween(progress, isMobile ? 0.14 : 0.34, isMobile ? 0.34 : 0.52);
-    const contentProgress = progressBetween(progress, isMobile ? 0.20 : 0.44, isMobile ? 0.42 : 0.60);
-    const contentScrollProgress = isContact ? 0 : progressBetween(progress, isMobile ? 0.45 : 0.76, 0.96);
+    const contentOverflow = Math.max(0, content.scrollHeight - viewportHeight);
+
+    // Animacion fluida y sincronizada
+    const growthProgress = progressBetween(progress, 0.04, isMobile ? 0.24 : 0.32);
+    // Fundido gradual sin dejar vacio negro
+    const imageFadeProgress = progressBetween(progress, isMobile ? 0.20 : 0.30, isMobile ? 0.65 : 0.65);
+    const contentProgress = progressBetween(progress, isMobile ? 0.18 : 0.38, isMobile ? 0.50 : 0.58);
+    const contentScrollProgress = progressBetween(progress, isMobile ? 0.45 : 0.70, 0.96);
+    
     const characterScale = 1 + growthProgress * (isMobile ? 0.18 : 0.28);
     // Desfase del 10% hacia abajo en las imagenes superiores
     const characterY = viewportHeight * 0.10;
     const contentY = -contentOverflow * contentScrollProgress;
 
-    scene.style.setProperty("--image-opacity", (1 - imageFadeProgress).toFixed(4));
+    // En movil la imagen se mantiene tenuemente de fondo (18%) para evitar el vacio negro absoluto
+    const imageOpacity = 1 - imageFadeProgress * (isMobile ? 0.82 : 1.0);
+
+    scene.style.setProperty("--image-opacity", imageOpacity.toFixed(4));
     scene.style.setProperty("--content-opacity", contentProgress.toFixed(4));
     scene.style.setProperty("--character-scale", characterScale.toFixed(4));
     scene.style.setProperty("--character-y", `${characterY.toFixed(2)}px`);
@@ -214,10 +222,21 @@ function scheduleParallaxRender() {
 }
 
 if (parallaxScenes.length) {
+  updateSceneHeights();
   renderParallax();
   window.addEventListener("scroll", scheduleParallaxRender, { passive: true });
-  window.addEventListener("resize", scheduleParallaxRender);
-  window.addEventListener("load", renderParallax);
+  window.addEventListener("resize", () => {
+    updateSceneHeights();
+    scheduleParallaxRender();
+  });
+  window.addEventListener("load", () => {
+    updateSceneHeights();
+    renderParallax();
+  });
+  window.addEventListener("contentloaded", () => {
+    updateSceneHeights();
+    renderParallax();
+  });
 }
 
 document.querySelector("#year").textContent = new Date().getFullYear();

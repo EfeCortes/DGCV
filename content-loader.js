@@ -322,6 +322,7 @@ async function loadContent(language = currentLanguage) {
     console.error("No se pudo cargar el contenido Markdown:", error);
   } finally {
     document.body.classList.remove("language-loading");
+    window.dispatchEvent(new Event("contentloaded"));
   }
 }
 
