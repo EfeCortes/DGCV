@@ -36,9 +36,9 @@ p {
 }
 h1, h2, h3 {
   margin: 0;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
   word-break: normal;
-  hyphens: manual;
+  hyphens: none;
 }
 h1, h2 {
   font-family: var(--display);
@@ -917,8 +917,8 @@ html[lang="qu"] .download-button {
     min-width: 42px;
     min-height: 42px;
   }
-  h1 { font-size: clamp(2.55rem, 9vw, 5rem); }
-  h2 { font-size: clamp(2.35rem, 8vw, 4.4rem); }
+  h1 { font-size: clamp(2.1rem, 6.5vw, 3.8rem); line-height: 1.02; }
+  h2 { font-size: clamp(1.9rem, 6vw, 3.4rem); line-height: 1.02; }
   .scroll-scene { min-height: 150svh; }
   .scroll-content { width: min(calc(100vw - 8vw), var(--content-max)); }
   .formation-copy-grid,
@@ -963,6 +963,8 @@ html[lang="qu"] .download-button {
 }
 
 @media (max-width: 560px) {
+  h1 { font-size: clamp(1.85rem, 7.8vw, 2.4rem); line-height: 1.06; }
+  h2 { font-size: clamp(1.65rem, 7vw, 2.15rem); line-height: 1.06; }
   p { font-size: 1rem; }
   .site-header { gap: 10px; }
   .brand img { width: 132px; }
