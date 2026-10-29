@@ -172,11 +172,13 @@ function renderParallax() {
     const growsForwardOnly = scene.classList.contains("hero") || scene.classList.contains("theme-titulation");
     const contentOverflow = Math.max(0, content.scrollHeight - viewportHeight);
     
-    // On mobile, scroll duration is cut in half
-    const contentScrollSegment = isContact ? 1 : (isMobile ? 0.40 : 0.20);
-    const overflowTravel = contentOverflow > 0 && !isContact ? contentOverflow / contentScrollSegment : 0;
+    // In mobile, make parallax travel very quick and brisk (half the travel)
+    const contentScrollSegment = isContact ? 1 : 0.20;
+    const overflowTravel = contentOverflow > 0 && !isContact
+      ? (isMobile ? contentOverflow * 0.85 : contentOverflow / contentScrollSegment)
+      : 0;
     const baseTravel = isMobile
-      ? (isContact ? 0.28 : 0.52)
+      ? (isContact ? 0.15 : 0.28)
       : (isContact ? 0.55 : 1.05);
     const minimumSceneHeight = viewportHeight * (1 + baseTravel);
     const neededSceneHeight = isContact
@@ -186,11 +188,11 @@ function renderParallax() {
 
     const travel = Math.max(1, rect.height - viewportHeight);
     const progress = clamp(-rect.top / travel);
-    const growthProgress = progressBetween(progress, isContact ? 0.08 : 0.12, isContact ? 0.28 : 0.32);
-    const imageFadeProgress = progressBetween(progress, isContact ? 0.28 : 0.34, isContact ? 0.48 : 0.52);
-    const contentProgress = progressBetween(progress, isContact ? 0.38 : 0.44, isContact ? 0.56 : 0.60);
-    const contentScrollProgress = isContact ? 0 : progressBetween(progress, isMobile ? 0.60 : 0.76, 0.96);
-    const characterScale = 1 + growthProgress * (isMobile ? 0.2 : 0.28);
+    const growthProgress = progressBetween(progress, isMobile ? 0.04 : 0.12, isMobile ? 0.20 : 0.32);
+    const imageFadeProgress = progressBetween(progress, isMobile ? 0.14 : 0.34, isMobile ? 0.34 : 0.52);
+    const contentProgress = progressBetween(progress, isMobile ? 0.20 : 0.44, isMobile ? 0.42 : 0.60);
+    const contentScrollProgress = isContact ? 0 : progressBetween(progress, isMobile ? 0.45 : 0.76, 0.96);
+    const characterScale = 1 + growthProgress * (isMobile ? 0.18 : 0.28);
     // Desfase del 10% hacia abajo en las imagenes superiores
     const characterY = viewportHeight * 0.10;
     const contentY = -contentOverflow * contentScrollProgress;
