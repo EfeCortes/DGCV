@@ -179,15 +179,30 @@ function updateSceneHeights() {
     return;
   }
 
-  // Recorrido base consistente e identico para todas las escenas (incluyendo contacto)
-  const baseTravel = isMobile ? 0.45 : 1.05;
+  if (isMobile) {
+    // Calibracion por pixeles en movil portrait:
+    // 1. Entrada y fundido gradual (fadeEnd: 200px)
+    // 2. Contenido 100% pleno y quieto para lectura comoda de titulos (holdEnd: 380px)
+    // 3. Recorrido 1:1 solo si hay contenido que desborda (cards)
+    const holdEnd = 380;
 
+    parallaxScenes.forEach(({ scene, content }) => {
+      if (!scene || !content) return;
+      const contentOverflow = Math.max(0, content.scrollHeight - viewportHeight);
+      const scrollTravel = contentOverflow > 0 ? Math.round(contentOverflow * 1.15) : 0;
+      const totalTravel = holdEnd + scrollTravel;
+      const sceneHeight = viewportHeight + totalTravel;
+      scene.style.minHeight = `${Math.round(sceneHeight)}px`;
+    });
+    return;
+  }
+
+  // Desktop
+  const baseTravel = 1.05;
   parallaxScenes.forEach(({ scene, content }) => {
     if (!scene || !content) return;
     const contentOverflow = Math.max(0, content.scrollHeight - viewportHeight);
-    const overflowTravel = contentOverflow > 0
-      ? (isMobile ? contentOverflow * 0.85 : contentOverflow / 0.20)
-      : 0;
+    const overflowTravel = contentOverflow > 0 ? contentOverflow / 0.20 : 0;
     const sceneHeight = viewportHeight * (1 + baseTravel) + overflowTravel;
     scene.style.minHeight = `${Math.round(sceneHeight)}px`;
   });
@@ -196,11 +211,55 @@ function updateSceneHeights() {
 function renderParallax() {
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
   const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1;
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = viewportWidth <= 768;
   const isMobileLandscape = viewportHeight <= 560 && viewportWidth > viewportHeight;
 
   if (isMobileLandscape) return;
 
+  if (isMobile) {
+    const fadeStart = 25;
+    const fadeEnd = 200;
+    const holdEnd = 380;
+
+    parallaxScenes.forEach(({ scene, stage, background, characters, content }) => {
+      if (!stage || !background || !characters || !content) return;
+
+      const rect = scene.getBoundingClientRect();
+      const contentOverflow = Math.max(0, content.scrollHeight - viewportHeight);
+      const scrollTravel = contentOverflow > 0 ? Math.round(contentOverflow * 1.15) : 0;
+      const totalTravel = Math.max(1, holdEnd + scrollTravel);
+
+      const scrolled = clamp(-rect.top, 0, totalTravel);
+
+      // 1. Escala sutil del personaje al inicio
+      const growthProgress = clamp(scrolled / fadeEnd);
+      const characterScale = 1 + growthProgress * 0.12;
+
+      // 2. Fundido suave y natural hacia el contenido pleno (entre 25px y 200px)
+      const fadeProgress = clamp((scrolled - fadeStart) / (fadeEnd - fadeStart));
+      const contentProgress = fadeProgress;
+      const imageFadeProgress = fadeProgress;
+
+      // 3. Recorrido: El contenido se mantiene 100% PLENO y QUIETO hasta holdEnd (380px)
+      // Solo a partir de ahi comienza a recorrerse si contiene tarjetas/elementos desbordantes
+      const contentScrollProgress = scrollTravel > 0
+        ? clamp((scrolled - holdEnd) / scrollTravel)
+        : 0;
+      const contentY = -contentOverflow * contentScrollProgress;
+
+      // La imagen se funde con el fondo de la seccion, manteniendo un sutil 8% para evitar negro vacio
+      const imageOpacity = 1 - imageFadeProgress * 0.92;
+
+      scene.style.setProperty("--image-opacity", imageOpacity.toFixed(4));
+      scene.style.setProperty("--content-opacity", contentProgress.toFixed(4));
+      scene.style.setProperty("--character-scale", characterScale.toFixed(4));
+      scene.style.setProperty("--character-y", "0px");
+      scene.style.setProperty("--content-y", `${contentY.toFixed(2)}px`);
+    });
+    return;
+  }
+
+  // Desktop
   parallaxScenes.forEach(({ scene, stage, background, characters, content }) => {
     if (!stage || !background || !characters || !content) return;
 
@@ -209,14 +268,12 @@ function renderParallax() {
     const progress = clamp(-rect.top / travel);
     const contentOverflow = Math.max(0, content.scrollHeight - viewportHeight);
 
-    // Animacion y fundidos rapidos en movil para visibilidad clara e inmediata de titulos
-    const growthProgress = progressBetween(progress, 0.02, isMobile ? 0.16 : 0.32);
-    const imageFadeProgress = progressBetween(progress, isMobile ? 0.02 : 0.30, isMobile ? 0.16 : 0.65);
-    const contentProgress = progressBetween(progress, isMobile ? 0.03 : 0.38, isMobile ? 0.15 : 0.58);
-    const contentScrollProgress = progressBetween(progress, isMobile ? 0.40 : 0.70, 0.96);
+    const growthProgress = progressBetween(progress, 0.04, 0.32);
+    const imageFadeProgress = progressBetween(progress, 0.30, 0.65);
+    const contentProgress = progressBetween(progress, 0.38, 0.58);
+    const contentScrollProgress = progressBetween(progress, 0.70, 0.96);
     
-    const characterScale = 1 + growthProgress * (isMobile ? 0.15 : 0.28);
-    // Base firme al piso sin recorte
+    const characterScale = 1 + growthProgress * 0.28;
     const characterY = 0;
     const contentY = -contentOverflow * contentScrollProgress;
 
