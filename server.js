@@ -10,6 +10,11 @@ const types = {
   ".js": "text/javascript; charset=utf-8",
   ".md": "text/markdown; charset=utf-8",
   ".svg": "image/svg+xml",
+  ".webp": "image/webp",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".pdf": "application/pdf",
 };
 
 const server = http.createServer((request, response) => {
