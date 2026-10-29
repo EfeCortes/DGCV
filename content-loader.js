@@ -149,11 +149,7 @@ function applyQuechuaWordBreaks(language) {
 
   textNodes.forEach((node) => {
     const cleanText = node.nodeValue.replaceAll(SOFT_HYPHEN, "");
-    if (node.parentElement?.closest("h1, h2, h3")) {
-      node.nodeValue = cleanText;
-      return;
-    }
-    const minimumLength = 12;
+    const minimumLength = 10;
     node.nodeValue = language === "qu"
       ? cleanText.replace(
           /[A-Za-zÁÉÍÓÚÜÑáéíóúüñ'’]+/g,
