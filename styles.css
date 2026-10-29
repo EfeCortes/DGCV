@@ -483,6 +483,9 @@ h3 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
 }
+.research-grid .feature-card:last-child {
+  grid-column: 1 / span 2;
+}
 .feature-card.accent {
   color: white;
   background: var(--blue);
@@ -929,7 +932,8 @@ html[lang="qu"] .download-button {
   }
   .admission-grid .content-card:nth-child(3),
   .requirements-callout,
-  .titulation-grid .content-card:last-child {
+  .titulation-grid .content-card:last-child,
+  .research-grid .feature-card:last-child {
     grid-column: auto;
     grid-row: auto;
   }
@@ -977,8 +981,8 @@ html[lang="qu"] .download-button {
   }
   .scroll-content {
     width: min(calc(100vw - 10vw), var(--content-max));
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 80px;
+    padding-bottom: 50px;
   }
   .content-card,
   .feature-card,
