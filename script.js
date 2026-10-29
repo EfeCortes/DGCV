@@ -191,8 +191,8 @@ function renderParallax() {
     const contentProgress = progressBetween(progress, isContact ? 0.38 : 0.44, isContact ? 0.56 : 0.60);
     const contentScrollProgress = isContact ? 0 : progressBetween(progress, isMobile ? 0.60 : 0.76, 0.96);
     const characterScale = 1 + growthProgress * (isMobile ? 0.2 : 0.28);
-    // On desktop, characters stay anchored firmly to the bottom margin
-    const characterY = 0;
+    // Desfase del 10% hacia abajo en las imagenes superiores
+    const characterY = viewportHeight * 0.10;
     const contentY = -contentOverflow * contentScrollProgress;
 
     scene.style.setProperty("--image-opacity", (1 - imageFadeProgress).toFixed(4));
