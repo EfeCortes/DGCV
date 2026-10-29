@@ -198,8 +198,8 @@ function renderParallax() {
     const contentScrollProgress = progressBetween(progress, isMobile ? 0.45 : 0.70, 0.96);
     
     const characterScale = 1 + growthProgress * (isMobile ? 0.18 : 0.28);
-    // Desfase del 10% hacia abajo en las imagenes superiores
-    const characterY = viewportHeight * 0.10;
+    // Base firme al piso sin recorte
+    const characterY = 0;
     const contentY = -contentOverflow * contentScrollProgress;
 
     // En movil la imagen se mantiene tenuemente de fondo (18%) para evitar el vacio negro absoluto

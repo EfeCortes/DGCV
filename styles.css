@@ -164,7 +164,7 @@ h3 {
   --image-opacity: 1;
   --content-opacity: 0;
   --character-scale: 1;
-  --character-y: 10svh;
+  --character-y: 0px;
   position: relative;
   min-height: 205svh;
   color: var(--section-fg);
@@ -207,7 +207,7 @@ h3 {
   will-change: opacity;
 }
 .hero-background { 
-  --desktop-bg: url("assets/images/home-bg.webp");
+  --desktop-bg: url("assets/images/desktop/home-bg.webp");
   --mobile-bg: url("assets/images/movil/home-bg.webp");
 }
 .parallax-stage picture {
@@ -227,7 +227,7 @@ h3 {
   z-index: 1;
   object-fit: cover;
   object-position: center bottom;
-  transform: translate3d(0, var(--character-y, 10svh), 0) scale(var(--character-scale));
+  transform: translate3d(0, var(--character-y, 0px), 0) scale(var(--character-scale));
   transform-origin: center bottom;
   opacity: var(--image-opacity);
   will-change: transform, opacity;
