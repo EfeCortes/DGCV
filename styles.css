@@ -225,7 +225,7 @@ h3 {
 }
 .parallax-characters {
   z-index: 1;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center bottom;
   transform: translate3d(0, var(--character-y, 0px), 0) scale(var(--character-scale));
   transform-origin: center bottom;
